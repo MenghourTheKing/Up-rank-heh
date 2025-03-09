@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Rank ot?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('menghour_image_url'); /* Replace with the actual URL of the Menghour image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        #yes {
+            background-color: green;
+            color: white;
+        }
+
+        #no {
+            background-color: red;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .grow {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Up Rank ot?</h1>
+        <div class="buttons">
+            <button id="yes" onclick="handleYes()">YES</button>
+            <button id="no" onclick="handleNo()">NO</button>
+        </div>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+
+        function handleYes() {
+            window.location.href = "game_id_page.html";  // Redirect to a page with Game ID
+        }
+
+        function handleNo() {
+            const yesButton = document.getElementById('yes');
+            const noButton = document.getElementById('no');
+
+            // Increase the size of YES button and hide NO button
+            yesButton.classList.add('grow');
+            noButton.classList.add('hidden');
+            noClickCount++;
+
+            if (noClickCount > 2) {
+                // Make the YES button full screen after multiple clicks
+                yesButton.style.width = "100vw";
+                yesButton.style.height = "100vh";
+                yesButton.style.fontSize = "40px";
+            }
+        }
+    </script>
+
+</body>
+</html>
